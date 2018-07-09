@@ -20,7 +20,7 @@ Four directories get created when you run the tool:
 
 ### Using Vim to edit lots of json files
 
-# These are just random notes for regex invocations that are relevant to modding values in various `.json` files in the CDB.
+#### These are just random notes for regex invocations that are relevant to modding values in various `.json` files in the CDB.
 
 ## Replace mob `power` with a different value
 `:%s/\(power": \[\n\s\+\)\d\+/\1PATTERN/g`
