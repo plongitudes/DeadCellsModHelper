@@ -22,7 +22,7 @@ Four directories get created when you run the tool:
 
 #### These are just random notes for regex invocations that are relevant to modding values in various `.json` files in the CDB.
 
-## Replace mob `power` with a different value
+##### Replace mob `power` with a different value
 `:%s/\(power": \[\n\s\+\)\d\+/\1PATTERN/g`
 - `\(power": \[\n\s\+\)` catches the text leading up to a power value.
 - `\d\+` catches the value
@@ -30,7 +30,7 @@ Four directories get created when you run the tool:
 - replace `PATTERN` with the value you want
 - `g` makes search and replace global, so all skill powers will be adjusted.
 
-## To do some math on all numbers following PATTERN:
+##### To do some math on all numbers following PATTERN:
 `:%s/PATTERN\(\d\+\)/\='PATTERN' . (submatch(1) + 50)/g`
 For example:
 `:%s/baseLootLevel": \(\d\+\)/\='baseLootLevel": ' . (submatch(1) * 2)/g`
