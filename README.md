@@ -24,6 +24,7 @@ Four directories get created when you run the tool:
 
 ##### Replace mob `power` with a different value
 `:%s/\(power": \[\n\s\+\)\d\+/\1PATTERN/g`
+
 - `\(power": \[\n\s\+\)` catches the text leading up to a power value.
 - `\d\+` catches the value
 - `\1` puts the lead-up pattern back
@@ -32,6 +33,7 @@ Four directories get created when you run the tool:
 
 ##### To do some math on all numbers following PATTERN:
 `:%s/PATTERN\(\d\+\)/\='PATTERN' . (submatch(1) + 50)/g`
+
 For example:
 `:%s/baseLootLevel": \(\d\+\)/\='baseLootLevel": ' . (submatch(1) * 2)/g`
 - Math happens in the parenthesis that contain the submatch
