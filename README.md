@@ -44,7 +44,8 @@ Or in all files:
 `:bufdo :%s/baseLootLevel": \(\d\+\)/\='baseLootLevel": ' . (submatch(1) * 2)/g`
 - The magic here happens because of `:bufdo`
 
-Scaling power of all mobs up by a factor of 4. Using capture groups because there's at least one mob who has a power called `power2`, and we want to make sure to change that one as well. `power` is represented in the json files as:
+Scaling power of all mobs up by a factor of 4:
+Using capture groups because there's at least one mob who has a power called `power2`, and we want to make sure to change that one as well. `power` is represented in the json files as:
 
 ```
 "power" :[
@@ -56,7 +57,8 @@ which is tricky to match. We need to look for power and make sure we grab the ne
 
 `:bufdo :%s/\(power\)\(\d*\)\(": \[\n\s\+\)\(\d\+\)/\=(submatch(1)).(submatch(2)).(submatch(3)).(submatch(4)*4)/g`
 
-Scaling power of all mobs down by a factor of 4, we use `@` instead of `/` as the separator, since we need to use `/` to do math inside the expression, and the character used for the seperator can't appear inside the expression. When we divide, regex will give results as integers, so any remainders will be truncated. If a power is 13 and we scale down by 4, the result is 3.25, and will be truncated to 3.
+Scaling power of all mobs down by a factor of 4:
+We use `@` instead of `/` as the separator, since we need to use `/` to do math inside the expression, and the character used for the seperator can't appear inside the expression. When we divide, regex will give results as integers, so any remainders will be truncated. If a power is 13 and we scale down by 4, the result is 3.25, and will be truncated to 3.
 
 `:bufdo :%s@\(power\)\(\d*\)\(": \[\n\s\+\)\(\d\+\)@\=(submatch(1)).(submatch(2)).(submatch(3)).(submatch(4)/4)@g`
 
