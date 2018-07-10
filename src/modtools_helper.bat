@@ -10,13 +10,13 @@ if %path_steamlibrary% equ false goto varsetup
 if %path_mods% equ false goto varsetup
 
 echo.
-echo  ...---===### ModTools Helper ###===---...
+echo        ...---===### Dead Cells ModTools Helper ###===---...
 echo.
 if %path_steamlibrary% equ unset (
-    echo  [[ SteamLibrary path not set. Please do step 1 before proceeding further. ]]
+    echo  [[ [!] SteamLibrary path not set ]]
 )
 if %path_mods% equ unset (
-    echo  [[ mod files path not set. Please do step 2 before proceeding further. ]]
+    echo  [[ [!] mod files path not set ]]
 )
 if %path_steamlibrary% equ unset (
     echo  [1] - Set root path for your SteamLibrary
@@ -30,6 +30,8 @@ if %path_steamlibrary% equ unset (
 )
 echo  [3] - Unpack original Dead Cells res.pak
 echo  [4] - Unpack data.cdb from unpacked res.pak
+echo        (this will overwrite any changes you have made
+echo        to previously unpacked data)
 echo  [5] - Collapse unpacked data.cdb directory
 echo        into a new data.cdb file, stored in the mod 
 echo        directory (set this in step 2).
